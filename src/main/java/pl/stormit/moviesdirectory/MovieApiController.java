@@ -9,9 +9,9 @@ import java.util.UUID;
 @RestController
 //@RequestMapping("time")
 @RequestMapping("api/v1/movies")
-public class MovieController {
+public class MovieApiController {
 
-    public MovieController(MovieService movieService) {
+    public MovieApiController(MovieService movieService) {
         this.movieService = movieService;
     }
 
@@ -24,15 +24,17 @@ public class MovieController {
 // generujemy parametr do id
     @GetMapping("{id}")
     Movie getMovie(@PathVariable UUID id){ // @PathVariable - to, co przyjdzie w adresie powinien przemapować na zmienną id
+
         return movieService.getMovie(id);
     }
+
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)  // zmienimy informację na 201 - obiekt utworzono
     Movie createMovie(@RequestBody Movie movie) {
         return movieService.createMovie(movie);
     }
 @PutMapping ("{id}")
-    Movie updateMovie(@PathVariable UUID id, @RequestBody Movie movie) {
+    Movie updateMovie(@PathVariable UUID id, @RequestBody Movie movie) { // łączymy RequestBody bo nasłuchujemy na cały obiekt filmu, który do nas przyjdzie
         return movieService.updateMovie(id, movie);
     }
 @DeleteMapping("{id}")

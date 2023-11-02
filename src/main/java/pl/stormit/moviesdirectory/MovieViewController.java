@@ -14,7 +14,7 @@ public class MovieViewController {
     private final MovieService movieService;
 
     @GetMapping
-    String indexView(Model model) {
+    String indexView(Model model){
         model.addAttribute("movies", movieService.getMovies());
         return "index";
     }
