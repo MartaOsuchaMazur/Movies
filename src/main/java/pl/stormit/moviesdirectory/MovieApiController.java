@@ -15,10 +15,11 @@ public class MovieApiController {
     private final MovieService movieService;
 
     @GetMapping
-    List<Movie> getMovies() {
+    Iterable<Movie> getMovies() {
         return movieService.getMovies();
     }
-// generujemy parametr do id
+
+    // generujemy parametr do id
     @GetMapping("{id}")
     Movie getMovie(@PathVariable UUID id){ // @PathVariable - to, co przyjdzie w adresie powinien przemapować na zmienną id
 

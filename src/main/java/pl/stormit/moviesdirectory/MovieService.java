@@ -1,5 +1,6 @@
 package pl.stormit.moviesdirectory;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
@@ -7,34 +8,36 @@ import java.util.List;
 import java.util.UUID;
 
 @Service
+@RequiredArgsConstructor
 public class MovieService {
 
-    public List<Movie> getMovies() {
-        return Arrays.asList(
-                new Movie("Duma i uprzedzenie"),
-                new Movie("Most nad Sundem"),
-                new Movie("Batman"));
+    private final MovieRepository movieRepository;
+
+    public Iterable<Movie> getMovies() {
+        return movieRepository.findAll();
     }
 
     public Movie getMovie(UUID id) {
-        Movie movie = new Movie("Movie " + id);
-        return movie;
+        return movieRepository.findById(id)
+                .orElseThrow();
     }
 
     public Movie createMovie(Movie movie) {
         movie.setId(UUID.randomUUID());
-
-        // TODO save movie
-
+        movie = movieRepository.save(movie);
         return  movie;
     }
 
     public Movie updateMovie(UUID id, Movie movie) {
-        movie.setId(id);
-        return movie;
+        Movie movieDB = movieRepository.findById(id)
+                .orElseThrow();
+        movieDB.setName(movie.getName());
+
+        movieDB = movieRepository.save(movieDB);
+        return movieDB;
     }
 
     public void deleteMovie(UUID id) {
-        // TODO delete movie
+        movieRepository.deleteById(id);
     }
 }
