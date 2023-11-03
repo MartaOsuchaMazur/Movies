@@ -8,6 +8,7 @@ import java.util.UUID;
 
 @Service
 public class MovieService {
+
     public List<Movie> getMovies() {
         return Arrays.asList(
                 new Movie("Duma i uprzedzenie"),

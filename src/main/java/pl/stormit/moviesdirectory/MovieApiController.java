@@ -1,5 +1,6 @@
 package pl.stormit.moviesdirectory;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -7,13 +8,9 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
-//@RequestMapping("time")
 @RequestMapping("api/v1/movies")
+@RequiredArgsConstructor
 public class MovieApiController {
-
-    public MovieApiController(MovieService movieService) {
-        this.movieService = movieService;
-    }
 
     private final MovieService movieService;
 
@@ -58,13 +55,3 @@ public class MovieApiController {
 
 // D - delete
 // DELETE - /movies/{id}
-
-
-
-
-
-//    @GetMapping
-//   String time() {
-//       return ""+System.currentTimeMillis();
-//   }
-
