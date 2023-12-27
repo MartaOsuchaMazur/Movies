@@ -1,25 +1,24 @@
-package pl.stormit.moviesdirectory;
+package pl.stormit.moviesdirectory.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import java.util.Set;
 import java.util.UUID;
 
 @Entity
 @Data
 @JsonIgnoreProperties(value = {"movies"})
-public class Actor {
+public class Category {
 
     @Id
     private UUID id;
 
     private String name;
-    private String surname;
 
-    @ManyToMany(mappedBy = "actors")
+    @OneToMany(mappedBy = "category")
     private Set<Movie> movies;
 }

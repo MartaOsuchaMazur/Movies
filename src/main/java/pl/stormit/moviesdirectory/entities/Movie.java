@@ -1,7 +1,9 @@
-package pl.stormit.moviesdirectory;
+package pl.stormit.moviesdirectory.entities;
 
 import lombok.Getter;
 import lombok.Setter;
+import pl.stormit.moviesdirectory.entities.Actor;
+import pl.stormit.moviesdirectory.entities.Category;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;

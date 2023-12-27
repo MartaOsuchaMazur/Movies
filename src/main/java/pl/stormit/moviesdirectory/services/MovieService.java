@@ -1,10 +1,10 @@
-package pl.stormit.moviesdirectory;
+package pl.stormit.moviesdirectory.services;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import pl.stormit.moviesdirectory.entities.Movie;
+import pl.stormit.moviesdirectory.repositories.MovieRepository;
 
-import java.util.Arrays;
-import java.util.List;
 import java.util.UUID;
 
 @Service

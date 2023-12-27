@@ -1,10 +1,11 @@
-package pl.stormit.moviesdirectory;
+package pl.stormit.moviesdirectory.controllers;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import pl.stormit.moviesdirectory.services.MovieService;
 
 @Controller
 @RequiredArgsConstructor

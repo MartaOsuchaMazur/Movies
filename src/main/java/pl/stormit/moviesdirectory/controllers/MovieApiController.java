@@ -1,10 +1,11 @@
-package pl.stormit.moviesdirectory;
+package pl.stormit.moviesdirectory.controllers;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import pl.stormit.moviesdirectory.entities.Movie;
+import pl.stormit.moviesdirectory.services.MovieService;
 
-import java.util.List;
 import java.util.UUID;
 
 @RestController
